@@ -1,68 +1,32 @@
-const removeFromArray = function(array, remove1, remove2) {
+const removeFromArray = function(array) {
 
-    // Find number of arguments
+    let outputArray = array;
+    
+    // Find number of arguments other than the array (arg 0)
     const numberOfArgumentsToCheck = arguments.length - 1;
 
-    if (numberOfArgumentsToCheck > 0) {
+    // Check if the argument values besides array present (arg 1+)
+    for (i = 1; i < arguments.length; i++) {
+        
+        // Assign current argument to check for
+        let argToCheck = arguments[i];
 
-        // Check if each argument is present in the array
-        for (i = 1; i < numberOfArgumentsToCheck + 1; i++) {
-            let arg = arguments[i];
+        // Check each item in the array starting with index 0
+        for (j = 0; j < outputArray.length; j++) {
+            let currentIndex = j;
+            let arrayValue = outputArray[j];
 
-            // Find out how many times the argument is in the array
-            let count = 0;
-            let checkArg = "";
-            for (i = 0; i < array.length; i++) {
-                checkArg = array[i];
-
-                if (checkArg === arg) {
-                    count += 1;
-                }
-            }
-
-            // Remove each occurance of argument in the array
-            array.splice(arg, count);
-        }
-    }
-
-    /*
-
-    const itemToRemove = array.indexOf(remove1);
-    
-    // Find out how many items in the array match remove1
-    let count1 = 0;
-    for (i = 0; i < array.length; i++) {
-        let arrayCheck = array[i];
-
-        if (arrayCheck === remove1) {
-            count1 += 1;
-        }
-    }
-
-    // Remove all of remove1 occurances
-    array.splice(itemToRemove, count1);
-
-    // If a second argument, repeat above
-    if (remove2) {
-        let count2 = 0;
-
-        for (i = 0; i < array.length; i++) {
-            let arrayCheck2 = array[i]
-
-            if (arrayCheck2 === remove2) {
-                count2 += 1;
+            // If array and argument values and types match, remove from arrray
+            if (arrayValue == argToCheck && typeof arrayValue == typeof argToCheck) {
+                outputArray.splice(currentIndex, 1);
+                // Reset j value to zero (-1 + j++)
+                j = -1;
             }
         }
-
-        const itemToRemove2 = array.indexOf(remove2);
-        array.splice(itemToRemove2, count2);
     }
-    */
-
-    // Return final array
-    return array;
     
-
+    // Return final array output
+    return outputArray;
 };
 
 // Do not edit below this line
