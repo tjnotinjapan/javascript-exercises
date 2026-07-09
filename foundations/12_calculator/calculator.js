@@ -7,20 +7,20 @@ const subtract = function(x, y) {
 };
 
 const sum = function(array) {
-    let sum = 0
+    let sumTotal = 0
     array.forEach((num) => {
-      sum += num;
+      sumTotal += num;
     });
-    return sum;
+    return sumTotal;
 };
 
 const multiply = function(array) {
-    let sum = 1;
+    let product = 1;
     array.forEach((number) => {
-        sum *= number;
+        product *= number;
     });
 
-    return sum;
+    return product;
 };
 
 const power = function(x, y) {
@@ -28,11 +28,11 @@ const power = function(x, y) {
 };
 
 const factorial = function(x) {
-    let sum = 1;
+    let facTotal = 1;
     for (i = x; i > 0; i--) {
-        sum = sum * i;
+        facTotal *= i;
     }
-    return sum;
+    return facTotal;
 };
 
 // Do not edit below this line
