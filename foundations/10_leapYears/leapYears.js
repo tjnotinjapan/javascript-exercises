@@ -1,16 +1,15 @@
 const leapYears = function(year) {
     // Set conditions to determine if inputted year is a leap year
-    // Condition one: divisible by 4 = leap year
-    // Condition two: divisible by 100 != leap year unless also divisble by 400
+    // Return false if a year does not meet any of the conditions
+    const divisbleByFour = year % 4 == 0;
+    const notCenturyYear = year % 100 > 0;
+    const divisbleByHundredAndFourHundred = year % 100 == 0 && year % 400 == 0;
 
-    // Condition one
-    if (year % 4 == 0) {
-        // Return true if non-century year passed condition one
-        if (year % 100 > 0) {
+    if (divisbleByFour) {
+        if (notCenturyYear) {
             return true;
         }
-        // Condition two
-        if (year % 100 == 0 && year % 400 == 0) {
+        if (divisbleByHundredAndFourHundred) {
             return true;
         } else {
             return false;
